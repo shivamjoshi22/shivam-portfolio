@@ -1,0 +1,4 @@
+import { DateRange, Tags } from './Primitives.jsx';
+export default function Experience({ profile }) {
+  return <div className="space-y-7">{profile.experience.map(item => <article key={item.id} className="relative border-l border-line pb-5 pl-6 last:pb-0 before:absolute before:-left-[5px] before:top-2.5 before:size-[9px] before:rounded-full before:bg-teal"><h3 className="text-section font-semibold leading-snug tracking-tight text-ink">{item.role}<br /><span className="text-teal">{item.company}</span></h3><DateRange start={item.start} end={item.end} />{item.summary && <p>{item.summary}</p>}{!!item.highlights?.length && <ul className="list-disc space-y-4 pl-5 marker:text-teal/50">{item.highlights.map(point => <li key={point}>{point}</li>)}</ul>}<Tags items={item.skills} /></article>)}</div>;
+}
